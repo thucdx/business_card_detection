@@ -77,7 +77,7 @@ def is_job_title(txt):
 
 if __name__ == '__main__':
     # sample_path = 'business_cards/Reference/011.jpg'
-    sample_path = 'business_cards/Reference/049.jpg'
+    sample_path = '010.jpg'
     # sample_path = 'samples/BC_5.jpg'
     # sample_path = 'business_cards/Droid/010.jpg'
     contact = recognize_contact(sample_path)
