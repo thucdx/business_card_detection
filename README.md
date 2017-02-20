@@ -1,9 +1,8 @@
 BUSINESS CARD RECOGNITION
 ---------------
 
-Tool for extract information like: name, email, phone, address, job title from Business card.
-
-Current supported language: `English`, and `Japanese (Romanji)`
+Tool for extract information: `name`, `email`, `phone`, `address`, `job title`, `website` from Business card.
+Current supported languages: `English`, and `Japanese (Romaji)`
 
 # Dependencies
  - Python 2
@@ -15,13 +14,13 @@ Current supported language: `English`, and `Japanese (Romanji)`
 
 # How to run
 
-Step1. Start flask app
+#### Step 1. Start Flask app
 
 ```
 python2 index.py
 ```
 
-Step 2. Click upload then wait for the result
+#### Step 2. Click upload then wait for the result
 
 # Example
 
