@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title> Business card information for {{ filename}} </title>
+    </head>
+
+    <body>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="/get/{{filename}}" style="width:500px;"/>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Name: {{info.name.decode('utf-8')}}</li>
+                            <li>Job Title: {{info.job_title.decode('utf-8')}}</li>
+                            <li>Company: {{info.company.decode('utf-8')}}</li>
+                            <li>Emails: {{'; '.join(info.emails).decode('utf-8')}}</li>
+                            <li>Phones: {{'; '.join(info.phones).decode('utf-8')}}</li>
+                            <li>Website: {{info.website.decode('utf-8')}}</li>
+                            <li>Address: {{'; '.join(info.addr).decode('utf-8')}}</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,3 +1,6 @@
+import os
+path = os.path.dirname(os.path.abspath(__file__))
+
 from difflib import SequenceMatcher
 
 common_name_jp = []
@@ -5,15 +8,20 @@ common_name_vi = []
 common_name_en = []
 
 SIMILAR_THRESHOLD = 0.80
+MIN_LENGTH = 5
 
 # Load data
-with open('data/common_name_en', 'r') as en_name:
+with open(path + '/../data/common_name_en', 'r') as en_name:
     for line in en_name:
-        common_name_en.append(line.strip().lower())
+        name = line.strip().lower()
+        if len(name) >= MIN_LENGTH:
+            common_name_en.append(name)
 
-with open('data/common_name_jp', 'r') as jp_name:
+with open(path + '/../data/common_name_jp', 'r') as jp_name:
     for line in jp_name:
-        common_name_jp.append(line.strip().lower())
+        name = line.strip().lower()
+        if len(name) >= MIN_LENGTH:
+            common_name_jp.append(name)
 
 
 def similar(a, b):
@@ -21,7 +29,7 @@ def similar(a, b):
 
 
 def scan_line(line, dict):
-    sub_tokens = [tok.lower() for tok in line.split()]
+    sub_tokens = [tok.decode('utf8').lower() for tok in line.split()]
     best_guess, best_name = 0, ''
 
     for sub_token in sub_tokens:
@@ -78,7 +86,7 @@ def find_best_guessed_name(tokens):
 
 
 def is_name(token):
-    sub_tokens = [tok.lower() for tok in token.split()]
+    sub_tokens = [tok.decode('utf8').lower() for tok in token.split()]
 
     for sub_token in sub_tokens:
         if is_en_name(sub_token) or is_jp_name(sub_token) or is_vn_name(sub_token):
